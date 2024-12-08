@@ -1,4 +1,5 @@
 const express = require("express");
+const mongoose = require('mongoose')
 
 const app = express();
 const { MongoClient } = require('mongodb');
@@ -15,7 +16,8 @@ const client = new MongoClient(mongoUri, {
 async function setupMqttAndMongo() {
     try {
     connectDB()
-        
+    const database = mongoose.connection.db
+    console.log(database)
     } catch (error) {
         console.error("Error connecting to MongoDB:", error);
     }
