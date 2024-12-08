@@ -8,7 +8,8 @@ app.use(express.json());
 
 
 
-const PORT = 8000;
-app.listen(PORT, () => {
-  console.log("Server is running on port " + PORT);
-});
+
+module.exports = async (req, res) => {
+    console.log("HTTP request received");
+    res.status(200).send("MQTT and MongoDB setup are running successfully.");
+};
