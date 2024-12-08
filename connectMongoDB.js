@@ -7,7 +7,9 @@ const connectDB = async () => {
             const database1 = mongoose.connections.model;
             const database2 = mongoose.connections.Schema;
 
-            console.log(database)
+            console.log(database1)
+            console.log(database2)
+
         })
 }
 
