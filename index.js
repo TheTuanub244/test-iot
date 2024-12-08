@@ -2,6 +2,7 @@ const express = require("express");
 
 const app = express();
 const { MongoClient } = require('mongodb');
+const connectDB = require("./connectMongoDB");
 
 require("dotenv").config();
 
@@ -22,7 +23,7 @@ async function setupMqttAndMongo() {
 
 module.exports = async (req, res) => {
     console.log("Attempting to connect to MongoDB...");
-    await client.connect();
+    connectDB()
     console.log("Connected to MongoDB");
     console.log("HTTP request received");
     res.status(200).send("MQTT and MongoDB setup are running successfully.");
