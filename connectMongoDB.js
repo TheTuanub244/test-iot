@@ -1,16 +1,14 @@
 const mongoose = require('mongoose')
+const { MongoClient } = require('mongodb');
 
 const connectDB = async () => {
-        await mongoose.connect(process.env.MONGODB_URI)
-        .then(() => {
-            console.log("Connected to MongoDB")
-            const database1 = mongoose.connections.model;
-            const database2 = mongoose.connections.Schema;
-
-            console.log(database1)
-            console.log(database2)
-
-        })
+    const client = new MongoClient(mongoUri, {
+        serverSelectionTimeoutMS: 50000 
+    });
+    const connected = await client.connect()
+    .then(() => {
+        console.log("connected successfully")
+    })
 }
 
 module.exports = connectDB
