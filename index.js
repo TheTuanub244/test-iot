@@ -23,7 +23,7 @@ async function setupMqttAndMongo() {
 setupMqttAndMongo().catch(console.error)
 
 module.exports = async (req, res) => {
-    
+    setupMqttAndMongo()
     console.log("HTTP request received");
     res.status(200).send("MQTT and MongoDB setup are running successfully.");
 };
