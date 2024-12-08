@@ -9,9 +9,7 @@ require("dotenv").config();
 
 app.use(express.json());
 const mongoUri = process.env.MONGO_URI || "mongodb+srv://tuanub244:AtOePUkyLEbKvv16@it4409.0ybva.mongodb.net/?retryWrites=true&w=majority&appName=it4409"
-const client = new MongoClient(mongoUri, {
-    serverSelectionTimeoutMS: 50000 
-});
+
 
 async function setupMqttAndMongo() {
     try {
